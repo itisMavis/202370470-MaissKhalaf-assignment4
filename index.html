@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maiss Khalaf | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Header with site navigation and hero intro -->
+    <header class="site-header">
+      <nav class="nav container" aria-label="Primary">
+        <div class="logo">Maiss Khalaf</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#repositories">GitHub</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
+          Light Mode
+        </button>
+      </nav>
+
+      <section class="hero container">
+        <div class="hero-text">
+          <p class="eyebrow" id="greeting">Welcome</p>
+          <h1>Maiss Khalaf</h1>
+          <p class="tagline">Turning ideas into practical and structured solutions.</p>
+          <!-- Dynamic greeting updated by user input -->
+          <div class="personalize">
+            <label for="visitor-name">Hello, what is your name?</label>
+            <input id="visitor-name" name="visitor-name" type="text" placeholder="Type your name" />
+            <p class="personalize-note" id="name-output">
+              Please enter your name above.
+            </p>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- Main content sections -->
+    <main id="main">
+      <!-- About section with short intro -->
+      <section id="about" class="section">
+        <div class="container section-grid">
+          <div>
+            <h2>About Me</h2>
+            <p>
+              Hi, I'm Maiss Khalaf, a junior Computer Science student passionate about Artificial Intelligence and Machine Learning.
+              I strive to apply programming, analytical, and problem-solving skills to build intelligent, efficient, and reliable software solutions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects section with placeholders -->
+      <section id="projects" class="section section-alt">
+        <div class="container">
+          <h2>Projects</h2>
+          <p class="section-description">
+            Browse my featured projects.
+          </p>
+          <div class="filter-bar" role="group" aria-label="Project categories">
+            <button class="filter-button is-active" type="button" data-filter="all">All</button>
+            <button class="filter-button" type="button" data-filter="beginner">Beginner</button>
+            <button class="filter-button" type="button" data-filter="advanced">Advanced</button>
+          </div>
+          <div class="card-grid">
+            <article class="card project-card" data-category="beginner">
+              <img
+                src="assets/images/project-placeholder.svg"
+                alt="Placeholder image for the Library Management System project"
+              />
+              <div class="card-body">
+                <h3>Library Management System (Python)</h3>
+                <p>
+                  A Python-based application that manages library operations, including
+                  adding, removing, searching, and issuing books. Built with object-oriented
+                  design to keep records organized and workflows efficient.
+                </p>
+              </div>
+            </article>
+
+            <article class="card project-card" data-category="advanced">
+              <img
+                src="assets/images/project-placeholder.svg"
+                alt="Placeholder image for the Midterm Exam Scheduling System project"
+              />
+              <div class="card-body">
+                <h3>Midterm Exam Scheduling System - KFUPM</h3>
+                <p>
+                  A scheduling system that automates midterm exam timetables, minimizes
+                  student conflicts, and optimizes room allocations based on course and
+                  instructor constraints.
+                </p>
+              </div>
+            </article>
+
+            <article class="card project-card" data-category="advanced">
+              <img
+                src="assets/images/project-placeholder.svg"
+                alt="Placeholder image for the DVSA Vulnerability Discovery and Remediation project"
+              />
+              <div class="card-body">
+                <h3>DVSA Vulnerability Discovery and Remediation (ICS-344)</h3>
+                <p>
+                  A security-focused application analysis project centered on identifying,
+                  analyzing, and fixing vulnerabilities in a serverless cloud system. It
+                  emphasizes secure design practices to improve the reliability and safety
+                  of the application.
+                </p>
+              </div>
+            </article>
+          </div>
+          <p class="empty-state" id="project-empty" hidden>
+            No projects match the selected category.
+          </p>
+        </div>
+      </section>
+
+      <!-- GitHub repositories loaded from the GitHub API -->
+      <section id="repositories" class="section">
+        <div class="container">
+          <h2>GitHub Repositories</h2>
+          <p class="section-description">
+            Browse my latest public repositories.
+          </p>
+          <div class="repo-toolbar">
+            <label class="sort-label" for="repo-sort">Sort repositories</label>
+            <select id="repo-sort" class="sort-select">
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
+          <p class="repo-status" id="repo-status" role="status" aria-live="polite">
+            Loading repositories...
+          </p>
+          <div class="repo-grid" id="repo-grid"></div>
+        </div>
+      </section>
+
+      <!-- Achievements section -->
+      <section id="achievements" class="section">
+        <div class="container">
+          <h2>Achievements</h2>
+          <ul class="achievement-list">
+            <li>1st Place - Great Debate Competition (KFUPM Business School).</li>
+            <li>Dean's Honor List for terms 241, 242, and 252.</li>
+            <li>Ranked Top 50 out of 1888+ teams, Aramco Consulting Championship.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- API-powered section with dynamic content -->
+      <section id="insights" class="section">
+        <div class="container">
+          <h2>Quick Insight</h2>
+          <p>Get a short tip for a quick boost of inspiration.</p>
+          <div class="fact-box">
+            <p class="fact-status" id="fact-status" role="status" aria-live="polite">
+              Click "Load Tip" to see a new tip.
+            </p>
+            <p class="fact-text" id="fact-text"></p>
+          </div>
+          <button class="button" id="load-fact" type="button">Load Tip</button>
+        </div>
+      </section>
+
+      <!-- Contact section with form (no backend) -->
+      <section id="contact" class="section section-alt">
+        <div class="container section-grid">
+          <div>
+            <h2>Contact</h2>
+            <p>
+              If you would like to connect about opportunities or collaborations, feel free
+              to send a message.
+            </p>
+            <div class="contact-details">
+              <p><strong>Name:</strong> Maiss Khalaf</p>
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:maiss.a.khalaf704@gmail.com">maiss.a.khalaf704@gmail.com</a>
+              </p>
+            </div>
+          </div>
+          <form class="contact-form" aria-label="Contact form">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com" required />
+
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Write your message"
+              required
+            ></textarea>
+
+            <button class="button" type="submit">Send Message</button>
+            <p class="form-note" id="form-note" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Maiss Khalaf. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
