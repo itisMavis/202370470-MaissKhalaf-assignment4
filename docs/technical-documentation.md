@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a static, responsive portfolio website built using HTML, CSS, and JavaScript. This version introduces polished academic and professional content, GitHub API integration, dynamic content updates, project filtering and sorting, application state management, and enhanced user interaction features.
+This project is a static, responsive portfolio website built using HTML, CSS, and JavaScript. This version introduces polished academic and professional content, GitHub API integration, dynamic content updates, project filtering and sorting, application state management, and enhanced user interaction features. 
 
 ## Structure
 
