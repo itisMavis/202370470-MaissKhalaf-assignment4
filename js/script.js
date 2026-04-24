@@ -34,6 +34,9 @@ const yearEl = document.getElementById("year");
 // Elements for the hero highlight cards.
 const highlightValues = document.querySelectorAll(".highlight-value[data-target]");
 
+// Elements that reveal as they enter the viewport.
+const revealElements = document.querySelectorAll(".reveal");
+
 // Elements for project filtering.
 const filterButtons = document.querySelectorAll(".filter-button");
 const projectCards = document.querySelectorAll(".project-card");
@@ -47,6 +50,8 @@ const repoSort = document.getElementById("repo-sort");
 // Elements for contact form feedback.
 const contactForm = document.querySelector(".contact-form");
 const formNote = document.getElementById("form-note");
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const pinnedRepository = {
   name: "exam-scheduling-system",
@@ -107,8 +112,6 @@ const animateHighlights = () => {
     return;
   }
 
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   if (prefersReducedMotion || !("IntersectionObserver" in window)) {
     highlightValues.forEach((element) => {
       formatHighlightValue(element, Number(element.dataset.target || 0));
@@ -155,6 +158,40 @@ const animateHighlights = () => {
   );
 
   highlightValues.forEach((element) => observer.observe(element));
+};
+
+const initScrollReveal = () => {
+  if (!revealElements.length) {
+    return;
+  }
+
+  document.body.classList.add("reveal-ready");
+
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    revealElements.forEach((element) => {
+      element.classList.add("is-visible");
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.18,
+      rootMargin: "0px 0px -40px 0px",
+    }
+  );
+
+  revealElements.forEach((element) => observer.observe(element));
 };
 
 const filterProjects = (category) => {
@@ -260,6 +297,7 @@ const loadRepositories = async () => {
 
 updateGreeting();
 animateHighlights();
+initScrollReveal();
 
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
