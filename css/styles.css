@@ -126,6 +126,51 @@ a:hover {
   padding-bottom: 70px;
 }
 
+.social-bar {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  gap: 14px;
+  z-index: 12;
+}
+
+.social-bar::after {
+  content: "";
+  width: 1px;
+  height: 56px;
+  margin: 2px auto 0;
+  background: var(--border);
+}
+
+.social-link {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  transform: translateY(-2px);
+  color: var(--accent);
+  border-color: rgba(37, 208, 166, 0.45);
+  background: var(--surface-strong);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
 /* Top navigation layout */
 .nav {
   display: flex;
@@ -736,6 +781,37 @@ textarea:focus {
   color: #ff8d8d;
 }
 
+.footer-actions {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 0;
+}
+
+.back-to-top {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  transform: translateY(-2px);
+  color: var(--accent);
+  border-color: rgba(37, 208, 166, 0.45);
+  background: var(--surface-strong);
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -765,6 +841,27 @@ body.reveal-ready .reveal.is-visible {
   .nav {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .social-bar {
+    left: 50%;
+    top: auto;
+    bottom: 18px;
+    transform: translateX(-50%);
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    backdrop-filter: blur(10px);
+  }
+
+  .social-bar::after {
+    width: 42px;
+    height: 1px;
+    margin: 0 0 0 4px;
   }
 
   .highlight-grid {

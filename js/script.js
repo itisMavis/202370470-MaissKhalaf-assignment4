@@ -50,6 +50,7 @@ const repoSort = document.getElementById("repo-sort");
 // Elements for contact form feedback.
 const contactForm = document.querySelector(".contact-form");
 const formNote = document.getElementById("form-note");
+const backToTopButton = document.getElementById("back-to-top");
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -322,6 +323,15 @@ if (repoSort) {
 }
 
 loadRepositories();
+
+if (backToTopButton) {
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+  });
+}
 
 if (contactForm && formNote) {
   contactForm.addEventListener("submit", (event) => {
