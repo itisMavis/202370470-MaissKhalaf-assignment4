@@ -1,15 +1,15 @@
-﻿# Technical Documentation
+# Technical Documentation
 
 ## Overview
 
-This project is a static, responsive portfolio website built using HTML, CSS, and JavaScript. This version introduces advanced functionality, including API integration, dynamic content updates, project filtering and sorting, and application state management.
+This project is a static, responsive portfolio website built using HTML, CSS, and JavaScript. This version introduces polished academic and professional content, GitHub API integration, dynamic content updates, project filtering and sorting, and application state management.
 
 ## Structure
 
-1) index.html contains the overall layout and content of the website, including sections for About, Projects, Achievements, Insights, GitHub Repositories, and Contact.  
-2) css/styles.css manages typography, spacing, layout structure, responsive behavior, and visual styling.  
-3) js/script.js implements all interactive features, including greeting updates, API calls, filtering logic, and theme state management.  
-4) assets/images/ stores images used throughout the website, including placeholder images for projects.  
+1) `index.html` contains the overall layout and content of the website, including sections for About, Education, Experience, Projects, Achievements, GitHub Repositories, and Contact.
+2) `css/styles.css` manages typography, spacing, layout structure, responsive behavior, and visual styling.
+3) `js/script.js` implements all interactive features, including greeting updates, animated highlight cards, filtering logic, GitHub data loading, and theme state management.
+4) `assets/images/` stores images used throughout the website, including placeholder images for projects.
 
 ## Responsive Design Implementation
 
@@ -26,25 +26,23 @@ The layout uses a combination of CSS Grid and Flexbox:
 - Updates dynamically based on user input.
 - Combines time-based logic with user interaction.
 
-### 2. API Integration
-
-#### Advice Slip API
-- Uses `fetch` with async/await to retrieve random advice.
-- Displays a loading message while waiting for a response.
-- Shows a user-friendly error message if the request fails.
-
-#### GitHub API
+### 2. GitHub API Integration
 - Fetches public repositories dynamically.
 - Displays repository data such as name and details.
 - Allows sorting (e.g., newest or oldest) using JavaScript logic.
 - Handles loading and error states to ensure smooth user experience.
 
-### 3. Project Filtering and Sorting
-- Filters projects based on categories (e.g., Python, Academic).
+### 3. Animated Highlight Cards
+- Uses `IntersectionObserver` to trigger the animation only when the hero stats enter the viewport.
+- Formats values such as GPA and visitor counts with readable numeric output.
+- Respects reduced motion preferences by rendering the final values without animation.
+
+### 4. Project Filtering and Sorting
+- Filters projects based on categories (e.g., beginner, advanced).
 - Uses conditional logic to show or hide elements dynamically.
 - Sorting logic reorders content based on selected criteria.
 
-### 4. State Management
+### 5. State Management
 - Implements dark/light mode toggle.
 - Stores user preference using localStorage.
 - Applies the saved theme automatically on page load.
@@ -63,9 +61,9 @@ Basic HTML validation ensures required fields are filled. Additional JavaScript 
 - Clean typography was selected to maintain readability.
 - Spacing and alignment were structured to create a balanced layout.
 - Hover effects and transitions were kept subtle to improve user experience without distraction.
+- New Education and Experience blocks were styled to match the existing glass-card visual language instead of introducing a new design system.
 
 ## Testing & Compatibility
-
 
 The website was tested using browser developer tools to simulate different screen sizes and ensure responsiveness across devices.
 

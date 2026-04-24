@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,16 +16,16 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Header with site navigation and hero intro -->
     <header class="site-header">
       <nav class="nav container" aria-label="Primary">
         <div class="logo">Maiss Khalaf</div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#repositories">GitHub</a></li>
           <li><a href="#achievements">Achievements</a></li>
-          <li><a href="#insights">Insights</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
@@ -37,8 +37,16 @@
         <div class="hero-text">
           <p class="eyebrow" id="greeting">Welcome</p>
           <h1>Maiss Khalaf</h1>
-          <p class="tagline">Turning ideas into practical and structured solutions.</p>
-          <!-- Dynamic greeting updated by user input -->
+          <p class="tagline">
+            Computer Science student building practical web and AI-driven solutions with structure, clarity, and impact.
+          </p>
+          <p class="hero-summary">
+            I focus on web development, intelligent systems, and secure software design, with experience across student initiatives,
+            academic projects, and peer mentoring.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="resume.pdf" download="Maiss-Khalaf-Resume.pdf">Download Resume</a>
+          </div>
           <div class="personalize">
             <label for="visitor-name">Hello, what is your name?</label>
             <input id="visitor-name" name="visitor-name" type="text" placeholder="Type your name" />
@@ -47,25 +55,160 @@
             </p>
           </div>
         </div>
+
+        <aside class="hero-panel" aria-label="Professional snapshot">
+          <p class="panel-eyebrow">Professional Snapshot</p>
+          <h2>Highlights at a glance</h2>
+          <div class="highlight-grid">
+            <article class="highlight-card">
+              <p class="highlight-value" data-target="3.75" data-decimals="2" data-suffix=" / 4.00">
+                3.75 / 4.00
+              </p>
+              <p class="highlight-label">CGPA</p>
+            </article>
+            <article class="highlight-card">
+              <p class="highlight-value" data-target="3.80" data-decimals="2" data-suffix=" / 4.00">
+                3.80 / 4.00
+              </p>
+              <p class="highlight-label">Major GPA</p>
+            </article>
+            <article class="highlight-card">
+              <p class="highlight-value" data-target="800" data-suffix="+">800+</p>
+              <p class="highlight-label">Event Reach</p>
+            </article>
+            <article class="highlight-card">
+              <p class="highlight-value" data-target="2500" data-grouping="true" data-suffix="+">
+                2,500+
+              </p>
+              <p class="highlight-label">Website Visitors</p>
+            </article>
+          </div>
+          <ul class="hero-panel-list">
+            <li>Based in Dhahran, Saudi Arabia</li>
+            <li>Focused on AI, machine learning, and well-structured web experiences</li>
+          </ul>
+        </aside>
       </section>
     </header>
 
-    <!-- Main content sections -->
     <main id="main">
-      <!-- About section with short intro -->
       <section id="about" class="section">
         <div class="container section-grid">
           <div>
             <h2>About Me</h2>
             <p>
-              Hi, I'm Maiss Khalaf, a junior Computer Science student passionate about Artificial Intelligence and Machine Learning.
-              I strive to apply programming, analytical, and problem-solving skills to build intelligent, efficient, and reliable software solutions.
+              Hi, I'm Maiss Khalaf, a Computer Science student at King Fahd University of Petroleum and Minerals with a concentration in
+              Artificial Intelligence and Machine Learning. I enjoy combining programming, analytical thinking, and user-focused design to
+              build efficient, reliable, and practical software solutions.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Projects section with placeholders -->
+      <section id="education" class="section section-alt">
+        <div class="container section-stack">
+          <div>
+            <h2>Education</h2>
+            <p class="section-description">
+              Academic foundation in computer science, intelligent systems, and secure web development.
+            </p>
+          </div>
+          <article class="info-card education-card">
+            <div class="entry-header">
+              <div>
+                <h3>B.S. in Computer Science</h3>
+                <p class="entry-subtitle">
+                  King Fahd University of Petroleum and Minerals | Dhahran, Saudi Arabia
+                </p>
+              </div>
+              <p class="entry-date">Aug 2023 - June 2028</p>
+            </div>
+            <ul class="detail-list">
+              <li><strong>CGPA:</strong> 3.75 / 4.00; <strong>Major GPA:</strong> 3.80 / 4.00</li>
+              <li><strong>Concentration:</strong> Artificial Intelligence and Machine Learning</li>
+              <li><strong>Dean's Honor List:</strong> Recognized for Academic Excellence during 2024-2025</li>
+            </ul>
+            <div class="coursework-block">
+              <h4>Major and Related Courses</h4>
+              <div class="course-grid">
+                <article class="mini-card">
+                  <h5>Web Engineering &amp; Development</h5>
+                  <p>
+                    Designed and developed an exam scheduling system for KFUPM faculty, replacing manual booking with a streamlined web-based
+                    solution that improved efficiency.
+                  </p>
+                </article>
+                <article class="mini-card">
+                  <h5>Information Security</h5>
+                  <p>
+                    Identified and fixed security vulnerabilities in an AWS serverless app (OWASP DVSA), applying principles like least
+                    privilege and secure validation.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="container section-stack">
+          <div>
+            <h2>Experience</h2>
+            <p class="section-description">
+              Experience across student-led initiatives, event web development, and academic mentoring.
+            </p>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-card">
+                <div class="entry-header">
+                  <div>
+                    <h3>Content and Media</h3>
+                    <p class="entry-subtitle">TechHub | Dhahran, Saudi Arabia</p>
+                  </div>
+                  <p class="entry-date">September 2024 - Present</p>
+                </div>
+                <p class="entry-text">
+                  Contributed to a student-led initiative focused on building impactful events for tech students, helping organize speaker
+                  sessions featuring CEOs and industry leaders, attracting 800+ attendees.
+                </p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-card">
+                <div class="entry-header">
+                  <div>
+                    <h3>Web Developer</h3>
+                    <p class="entry-subtitle">Gaming+ | Dhahran, Saudi Arabia</p>
+                  </div>
+                  <p class="entry-date">September 2025 - January 2026</p>
+                </div>
+                <p class="entry-text">
+                  Worked alongside a web development team to design and develop a website for a student-led event, supporting 2,500+ visitors.
+                </p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-card">
+                <div class="entry-header">
+                  <div>
+                    <h3>English Tutor</h3>
+                    <p class="entry-subtitle">
+                      King Fahd University of Petroleum and Minerals | Dhahran, Saudi Arabia
+                    </p>
+                  </div>
+                  <p class="entry-date">2024</p>
+                </div>
+                <p class="entry-text">
+                  Met regularly with freshman students to provide guidance and feedback on argumentative essays and academic writing.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="projects" class="section section-alt">
         <div class="container">
           <h2>Projects</h2>
@@ -86,9 +229,8 @@
               <div class="card-body">
                 <h3>Library Management System (Python)</h3>
                 <p>
-                  A Python-based application that manages library operations, including
-                  adding, removing, searching, and issuing books. Built with object-oriented
-                  design to keep records organized and workflows efficient.
+                  A Python-based application that manages library operations, including adding, removing, searching, and issuing books.
+                  Built with object-oriented design to keep records organized and workflows efficient.
                 </p>
               </div>
             </article>
@@ -101,9 +243,8 @@
               <div class="card-body">
                 <h3>Midterm Exam Scheduling System - KFUPM</h3>
                 <p>
-                  A scheduling system that automates midterm exam timetables, minimizes
-                  student conflicts, and optimizes room allocations based on course and
-                  instructor constraints.
+                  A scheduling system that automates midterm exam timetables, minimizes student conflicts, and optimizes room allocations
+                  based on course and instructor constraints.
                 </p>
               </div>
             </article>
@@ -116,10 +257,8 @@
               <div class="card-body">
                 <h3>DVSA Vulnerability Discovery and Remediation (ICS-344)</h3>
                 <p>
-                  A security-focused application analysis project centered on identifying,
-                  analyzing, and fixing vulnerabilities in a serverless cloud system. It
-                  emphasizes secure design practices to improve the reliability and safety
-                  of the application.
+                  A security-focused application analysis project centered on identifying, analyzing, and fixing vulnerabilities in a
+                  serverless cloud system. It emphasizes secure design practices to improve the reliability and safety of the application.
                 </p>
               </div>
             </article>
@@ -130,7 +269,6 @@
         </div>
       </section>
 
-      <!-- GitHub repositories loaded from the GitHub API -->
       <section id="repositories" class="section">
         <div class="container">
           <h2>GitHub Repositories</h2>
@@ -151,7 +289,6 @@
         </div>
       </section>
 
-      <!-- Achievements section -->
       <section id="achievements" class="section">
         <div class="container">
           <h2>Achievements</h2>
@@ -163,29 +300,12 @@
         </div>
       </section>
 
-      <!-- API-powered section with dynamic content -->
-      <section id="insights" class="section">
-        <div class="container">
-          <h2>Quick Insight</h2>
-          <p>Get a short tip for a quick boost of inspiration.</p>
-          <div class="fact-box">
-            <p class="fact-status" id="fact-status" role="status" aria-live="polite">
-              Click "Load Tip" to see a new tip.
-            </p>
-            <p class="fact-text" id="fact-text"></p>
-          </div>
-          <button class="button" id="load-fact" type="button">Load Tip</button>
-        </div>
-      </section>
-
-      <!-- Contact section with form (no backend) -->
       <section id="contact" class="section section-alt">
         <div class="container section-grid">
           <div>
             <h2>Contact</h2>
             <p>
-              If you would like to connect about opportunities or collaborations, feel free
-              to send a message.
+              If you would like to connect about opportunities or collaborations, feel free to send a message.
             </p>
             <div class="contact-details">
               <p><strong>Name:</strong> Maiss Khalaf</p>
@@ -220,7 +340,7 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Maiss Khalaf. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Maiss Khalaf. All rights reserved.</p>
       </div>
     </footer>
   </body>

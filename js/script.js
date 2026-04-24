@@ -31,15 +31,13 @@ const nameInput = document.getElementById("visitor-name");
 const nameOutput = document.getElementById("name-output");
 const yearEl = document.getElementById("year");
 
+// Elements for the hero highlight cards.
+const highlightValues = document.querySelectorAll(".highlight-value[data-target]");
+
 // Elements for project filtering.
 const filterButtons = document.querySelectorAll(".filter-button");
 const projectCards = document.querySelectorAll(".project-card");
 const projectEmpty = document.getElementById("project-empty");
-
-// Elements for the tip section.
-const factButton = document.getElementById("load-fact");
-const factStatus = document.getElementById("fact-status");
-const factText = document.getElementById("fact-text");
 
 // Elements for the GitHub repositories section.
 const repoGrid = document.getElementById("repo-grid");
@@ -90,6 +88,75 @@ const updateGreeting = () => {
   }
 };
 
+const formatHighlightValue = (element, value) => {
+  const decimals = Number(element.dataset.decimals || 0);
+  const prefix = element.dataset.prefix || "";
+  const suffix = element.dataset.suffix || "";
+  const useGrouping = element.dataset.grouping === "true";
+  const formattedValue = value.toLocaleString(undefined, {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+    useGrouping,
+  });
+
+  element.textContent = `${prefix}${formattedValue}${suffix}`;
+};
+
+const animateHighlights = () => {
+  if (!highlightValues.length) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    highlightValues.forEach((element) => {
+      formatHighlightValue(element, Number(element.dataset.target || 0));
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        const element = entry.target;
+        const targetValue = Number(element.dataset.target || 0);
+        const duration = 900;
+        const startTime = performance.now();
+
+        formatHighlightValue(element, 0);
+
+        const step = (currentTime) => {
+          const progress = Math.min((currentTime - startTime) / duration, 1);
+          const easedProgress = 1 - Math.pow(1 - progress, 3);
+          const currentValue = targetValue * easedProgress;
+
+          formatHighlightValue(element, currentValue);
+
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+            return;
+          }
+
+          formatHighlightValue(element, targetValue);
+        };
+
+        window.requestAnimationFrame(step);
+        observer.unobserve(element);
+      });
+    },
+    {
+      threshold: 0.35,
+    }
+  );
+
+  highlightValues.forEach((element) => observer.observe(element));
+};
+
 const filterProjects = (category) => {
   let visibleCount = 0;
 
@@ -105,55 +172,6 @@ const filterProjects = (category) => {
 
   if (projectEmpty) {
     projectEmpty.hidden = visibleCount !== 0;
-  }
-};
-
-const setFactStatus = (message, isError = false) => {
-  if (!factStatus) {
-    return;
-  }
-
-  factStatus.textContent = message;
-  factStatus.classList.toggle("error", isError);
-};
-
-const loadFact = async () => {
-  if (!factText || !factStatus) {
-    return;
-  }
-
-  setFactStatus("Loading...");
-  factText.textContent = "";
-
-  if (factButton) {
-    factButton.disabled = true;
-  }
-
-  try {
-    const response = await fetch("https://api.adviceslip.com/advice", {
-      cache: "no-store",
-    });
-
-    if (!response.ok) {
-      throw new Error("Request failed");
-    }
-
-    const data = await response.json();
-    const advice = data && data.slip ? data.slip.advice : "";
-
-    if (!advice) {
-      setFactStatus("No tip is available right now. Please try again.", true);
-      return;
-    }
-
-    factText.textContent = `"${advice}"`;
-    setFactStatus("");
-  } catch (error) {
-    setFactStatus("Sorry, the tip could not be loaded right now.", true);
-  } finally {
-    if (factButton) {
-      factButton.disabled = false;
-    }
   }
 };
 
@@ -241,6 +259,7 @@ const loadRepositories = async () => {
 };
 
 updateGreeting();
+animateHighlights();
 
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
@@ -259,10 +278,6 @@ filterButtons.forEach((button) => {
 });
 
 filterProjects("all");
-
-if (factButton) {
-  factButton.addEventListener("click", loadFact);
-}
 
 if (repoSort) {
   repoSort.addEventListener("change", renderRepositories);
