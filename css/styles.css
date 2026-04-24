@@ -268,12 +268,6 @@ h1 {
   margin-bottom: 18px;
 }
 
-.hero-summary {
-  max-width: 620px;
-  color: var(--muted);
-  margin-bottom: 24px;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -282,7 +276,6 @@ h1 {
 }
 
 body.light-theme .tagline,
-body.light-theme .hero-summary,
 body.light-theme .personalize-note,
 body.light-theme .section-description,
 body.light-theme .repo-status,
