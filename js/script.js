@@ -334,12 +334,13 @@ if (backToTopButton) {
 }
 
 if (contactForm && formNote) {
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const nameField = contactForm.querySelector("#name");
     const emailField = contactForm.querySelector("#email");
     const messageField = contactForm.querySelector("#message");
+    const submitButton = contactForm.querySelector('button[type="submit"]');
 
     const nameValue = nameField ? nameField.value.trim() : "";
     const emailValue = emailField ? emailField.value.trim() : "";
@@ -353,9 +354,39 @@ if (contactForm && formNote) {
       return;
     }
 
-    formNote.textContent = `Thanks, ${nameValue}! Your message has been received (demo form).`;
+    formNote.textContent = "Sending your message...";
     formNote.classList.remove("error");
     formNote.classList.add("visible");
-    contactForm.reset();
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: new FormData(contactForm),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      formNote.textContent = `Thanks, ${nameValue}! Your message has been sent successfully.`;
+      formNote.classList.remove("error");
+      formNote.classList.add("visible");
+      contactForm.reset();
+    } catch (error) {
+      formNote.textContent =
+        "Sorry, your message could not be sent right now. Please try again in a moment.";
+      formNote.classList.add("visible", "error");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
+    }
   });
 }
