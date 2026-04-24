@@ -1,7 +1,7 @@
 # 202370470-MaissKhalaf-assignment4
 
 ## Project Description
-A fully developed personal portfolio web application showcasing academic, professional, and technical experience. The website includes structured sections for About, Education, Experience, Projects, GitHub repositories, Achievements, and Contact. It is built using HTML, CSS, and JavaScript with a clean, modern design and enhanced interactivity, presenting a polished and professional final product.
+A fully developed personal portfolio web application showcasing academic, professional, and technical experience. The website includes structured sections for About, Education, Experience, Projects, GitHub repositories, Achievements, and Contact. It is built using HTML, CSS, and JavaScript with a clean, modern design and enhanced interactivity, presenting a polished and professional final product. The application emphasizes both functionality and user experience, combining dynamic features and polished design elements to create a professional and engaging portfolio.
 
 ## Technologies Used
 - HTML  
@@ -40,11 +40,6 @@ A fully developed personal portfolio web application showcasing academic, profes
 
 Optional: Use a local development server such as VS Code Live Server for automatic reload during development.
 
-2. Navigate to the project folder.
-3. Open `index.html` in a web browser.
-
-Optional: Use a local development server such as VS Code Live Server for automatic reload during development.
-
 ## Performance
 The website was tested using Chrome Lighthouse and achieved a performance score of 100. This indicates efficient loading, optimized resource usage, and smooth performance across devices. Basic optimizations such as keeping files lightweight and avoiding unnecessary code were applied to ensure a fast and responsive user experience.
 
@@ -53,3 +48,4 @@ OpenAI Codex (ChatGPT) was used as a supporting tool during development to assis
 
 ## Live Deployment
 https://itismavis.github.io/202370470-MaissKhalaf-assignment4/
+This deployed version represents the final production-ready version of the application.
