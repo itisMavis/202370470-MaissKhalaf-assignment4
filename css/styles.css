@@ -750,7 +750,9 @@ textarea:focus {
   box-shadow: var(--shadow);
 }
 
-.button:hover {
+.button:hover,
+.button:focus-visible {
+  color: #031114;
   transform: translateY(-2px);
 }
 
