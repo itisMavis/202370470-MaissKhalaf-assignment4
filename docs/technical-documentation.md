@@ -34,7 +34,7 @@ The layout uses a combination of CSS Grid and Flexbox:
 
 ### 3. Animated Highlight Cards
 - Uses `IntersectionObserver` to trigger animations when elements enter the viewport.  
-- Displays numerical values such as GPA and visitor counts dynamically.  
+- Displays animated portfolio highlights such as projects built, technologies used, and development hours.
 - Respects reduced motion preferences by disabling animation when necessary.  
 
 ### 4. Project Filtering and Sorting
