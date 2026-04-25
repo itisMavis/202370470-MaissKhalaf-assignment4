@@ -349,10 +349,11 @@ body.light-theme .hero-panel {
 }
 
 .highlight-card {
-  padding: 18px;
+  padding: 16px;
   border-radius: 18px;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease;
 }
 
 body.light-theme .highlight-card {
@@ -361,13 +362,16 @@ body.light-theme .highlight-card {
 
 .highlight-value {
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
-  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-size: clamp(1.15rem, 2.1vw, 1.55rem);
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .highlight-label {
   color: var(--muted);
   margin-top: 4px;
+  font-size: 0.95rem;
+  line-height: 1.35;
 }
 
 .hero-panel-list {
@@ -463,6 +467,7 @@ body.light-theme .section-alt {
 }
 
 .card:hover,
+.highlight-card:hover,
 .info-card:hover,
 .timeline-card:hover,
 .repo-card:hover {
